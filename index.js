@@ -46,6 +46,12 @@ document.getElementById("location").innerHTML = locations[randomLoc];
 
 function randomSurvivors () {
     var survivors = randomNumber - Math.floor((Math.random() * randomNumber) + 1);
+    if(survivors < 2) {
+        survivors += " survives";
+    }
+    else {
+        survivors += " survive";
+    }
     document.getElementById("p2").innerHTML = survivors;
 }
 

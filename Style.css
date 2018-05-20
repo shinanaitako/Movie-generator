@@ -6,17 +6,49 @@ h1 {
     font-size: 42px;
     
 }
+
+#first {
+    position: relative;
+    animation-timing-function: ease-in;
+    animation: mymove 5s;
+}
+    #second {
+        position: relative;
+        animation-timing-function: ease-in;
+        animation: mymove2 5s;
+        animation-delay: 2s;
+      opacity: 0;
+      animation-fill-mode: forwards;
+    }
+    #third {
+        position: relative;
+        animation-timing-function: ease-in;
+        animation: mymove2 5s;
+        animation-delay: 4s;
+        opacity: 0;
+        animation-fill-mode: forwards;
+    } 
+@keyframes mymove {
+    from {left: -300px;}
+    to {left: 0px;}
+    
+}
+@keyframes mymove2 {
+    from {left: -300px; opacity: 0;}
+    to {left: 0px; opacity: 1;}
+}
 p {
     font-size: 22px;
-    
     border-width: 1px;
     border-radius: 5px;
+
 }
 button {
     font-size: 16px;
     text-decoration: none;
     background-color: white;
     color: black;
-   
+    border-style: solid;
+    font-family: 'Julius Sans One';
 
 }
