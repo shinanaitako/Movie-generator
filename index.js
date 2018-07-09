@@ -21,6 +21,7 @@ function randomGenre () {
 
 
 var randomAmountOfPeople;
+var people;
 
 function randomPeople () {
     randomAmountOfPeople = Math.floor((Math.random() * 10) + 1);
