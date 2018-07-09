@@ -20,11 +20,12 @@ function randomGenre () {
 }
 
 
-var randomNumber;
+var randomAmountOfPeople;
 
 function randomPeople () {
-    randomNumber = Math.floor((Math.random() * 10) + 1);
-    document.getElementById("p1").innerHTML = randomNumber;
+    randomAmountOfPeople = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("p1").innerHTML = randomAmountOfPeople;
+    getAdjectives(randomAmountOfPeople*5);
 }
 
 
@@ -45,7 +46,7 @@ document.getElementById("location").innerHTML = locations[randomLoc];
 
 
 function randomSurvivors () {
-    var survivors = randomNumber - Math.floor((Math.random() * randomNumber) + 1);
+    var survivors = randomAmountOfPeople - Math.floor((Math.random() * randomAmountOfPeople) + 1);
     if(survivors == 1) {
         survivors += " survives";
     }
@@ -65,13 +66,13 @@ function refreshData() {
 }
 refreshData();
 
-$(function () {
+function getAdjectives(amountOfAdjectivesToGet=5) {
 
 var $adjectives = $('#adjectives');
 
     $.ajax({
     type: 'GET',
-    url: 'https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=adjective&minCorpusCount=1000&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&limit=5&api_key=f7ec2673a7ba9341f00070c0a310da46dffad4b2644f7606b',
+    url: 'https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=adjective&minCorpusCount=1000&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&limit='+amountOfAdjectivesToGet+'&api_key=f7ec2673a7ba9341f00070c0a310da46dffad4b2644f7606b',
         success: function(data) {
       
        $.each(data, function(index, adj){
@@ -80,4 +81,4 @@ var $adjectives = $('#adjectives');
     }
 
     });
-});
+}
