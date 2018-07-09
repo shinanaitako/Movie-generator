@@ -19,15 +19,32 @@ function randomGenre () {
     document.getElementById("genre").innerHTML = genres[randomGen];
 }
 
+var randomFirstName = [
+    'Barbie',
+    'Johnny',
+    'Casey',
+    'Robin',
+    'Freddie',
+    'Frankie',
+    'Jamie',
+    'Ashley',
+    'Tony',
+    'Billie'
+]
 
 var randomAmountOfPeople;
-var people;
 
 function randomPeople () {
-    randomAmountOfPeople = Math.floor((Math.random() * 10) + 1);
+    randomAmountOfPeople = Math.floor((Math.random() * randomFirstName.length) + 1);
     document.getElementById("p1").innerHTML = randomAmountOfPeople;
     getAdjectives(randomAmountOfPeople*5);
+    var i;
+    for (i=0; i <randomAmountOfPeople; i++) {
+        document.getElementById("names").innerHTML = randomFirstName[i];
+    }
 }
+
+
 
 
 
