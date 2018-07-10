@@ -14,7 +14,7 @@ var genres = [
     'live action anime'
 ]
 
-function randomGenre () {
+function randomGenre() {
     var randomGen = Math.floor(Math.random() * (genres.length));
     document.getElementById("genre").innerHTML = genres[randomGen];
 }
@@ -34,18 +34,30 @@ var randomFirstName = [
 
 var randomAmountOfPeople;
 
-function randomPeople () {
-    randomAmountOfPeople = Math.floor((Math.random() * randomFirstName.length) + 1);
-    document.getElementById("p1").innerHTML = randomAmountOfPeople;
-    getAdjectives(randomAmountOfPeople*5);
-    var i;
-    for (i=0; i <randomAmountOfPeople; i++) {
-        document.getElementById("names").innerHTML = randomFirstName[i];
-    }
+function Character (name, traits) {
+    this.name = name;
+    this.traits = traits;
 }
 
 
+function randomPeople() {
+    randomAmountOfPeople = Math.floor((Math.random() * 10) + 1);
+    document.getElementById("p1").innerHTML = randomAmountOfPeople;
+    getAdjectives(randomAmountOfPeople*5);
+   
+}
 
+var humanNames;
+
+ function getNames() {
+   humanNames = randomFirstName.slice(0, randomAmountOfPeople);
+ }
+
+var humanTraits;
+
+function getTraits() {
+humanTraits = adjectives.slice(0, randomAmountOfPeople);
+}
 
 
 var locations = [
@@ -57,13 +69,13 @@ var locations = [
     'abandoned hospital'
 ]
 
-function randomLocation () {
+function randomLocation() {
     var randomLoc = Math.floor(Math.random() * (locations.length));
 document.getElementById("location").innerHTML = locations[randomLoc];
 }
 
 
-function randomSurvivors () {
+function randomSurvivors() {
     var survivors = randomAmountOfPeople - Math.floor((Math.random() * randomAmountOfPeople) + 1);
     if(survivors == 1) {
         survivors += " survives";
